@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/d58eb19ed0.js"></script>
+    <script type="text/javascript" src="diner-menu.js"></script>
+    <link rel="stylesheet" href="diner-styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/png" >
+    <title>MD-Restorante Bottega</title>
+</head>
+
+<body>
+    <div class="bg-image"></div>
+    
+    <div class="left-column">
+        <img class="Logo" onclick="window.location.href='index.html'" src="images/logo1.png" alt="Logo" />
+
+    </div>
+    <div class="menu-wrapper">
+        <div class="intro-screen-wrapper">
+            <div class="diner-header">
+                <div class="diner-header-img"></div>
+            </div>
+            <div class="feedback-column-wrapper">
+                <div class="main-message-box message-box-style">
+                        <span id="server-chat-box">Welcome to Bottega diner!<br>Bienvenidos al restaurante Bottega!<br>
+                             Please choose the menu you want and <br>Enjoy your meal!<br>Por favor elige el menú que quieras y
+                             Buen provecho!</span>
+                </div>
+                <div class="intro-menu btn-breakfast-menu time-choice" onclick="setMenuCategory('breakfast')">
+                    Desayuno-Breakfast
+                </div>
+                <div class="intro-menu btn-lunch-menu time-choice" onclick="setMenuCategory('lunch')">
+                    Almuerzo-Lunch
+                </div>
+                <div class="intro-menu btn-dinner-menu time-choice" onclick="setMenuCategory('dinner')">
+                    Cena-Dinner
+                </div>
+            </div>
+        </div>
+        <div class="menu-display-container">
+            <div id="menu-display" class="toggle-visible">
+                <div class="menu-header" id="header-specials">
+                    <!-- <h2>specials("Lunch");</h2> -->
+                </div>
+                <div class="menu-list" id="list-specials"></div>
+                <div class="menu-header" id="header-sides">
+                    <h2>[side_orders];</h2>
+                </div>
+                <div class="menu-list" id="list-sides"></div>
+                <div class="menu-header" id="header-drinks">
+                    <h2>/* Drinks */</h2>
+                </div>
+                <div class="menu-list" id="list-drinks"></div>
+            </div>
+        </div>
+        <div class="order-display-container">
+            <div class="order-header">
+                <h2>Your Cart = { ... }</h2>
+            </div>
+            <div class="order-list" id="order-list-tag">
+            </div>
+            <div class="total-payment">
+                <div class="total-payment-header">var Total +=</div>
+                <div class="total-payment-amount" id="total-payment"></div>
+            </div>
+            <div class="buttons-wrapper">
+                <input type="button" id="reset-btn" class="toggle-visible" value="Restart Order" onclick="delOrderAll()">
+                <input type="button" id="checkout-btn" class="toggle-visible" value="Checkout" onclick="checkoutButton()">
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer active-element"><span class="copyright">&copy; Drew Goodman 2019</span></footer>
+</body>
+
+<script>
+// On INIT -- won't run from the .js file
+renderOrderList();
+</script>
+
+</html>
