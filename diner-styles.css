@@ -281,10 +281,10 @@ footer {
     background-repeat: no-repeat;
     border-radius: 4px;
     padding-left: 2.5vw;
-    padding-right: 155px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 200px;
+    padding-right: 50px;
+    padding-top: 11px;
+    padding-bottom: 1px;
+    width:350px;
     position: fixed
    
 }
