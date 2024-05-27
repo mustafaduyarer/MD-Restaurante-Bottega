@@ -89,7 +89,7 @@ const menu = [
     },
 ]
 
-const waitressNameBank = ["Carol", "Shannon", "Nicole", "Dana", "Michelle", "Caitlin"];
+const waitressNameBank = ["Sofía", "Alba", "Daniela", "María", "Fabio", "Xavi"];
 
 
 var customerOrderList = [];
@@ -110,7 +110,7 @@ function setMenuCategory(menuType) {
     renderMenu("specials", menuType);
     renderMenu("drinks", menuType);
     renderMenu("sides", menuType);
-    renderMenu("Aksam",menuType);
+    
     renderOrderList();
     toggleMenu();
     let hideList = document.querySelectorAll(".intro-menu");
@@ -124,7 +124,7 @@ function setMenuCategory(menuType) {
 function setSpecialsCategory(menuType) {
     currentMenuCategory = menuType;
     // document.getElementById("header-specials").textContent = `<h2>specials("${menuType}");</h2>`;
-    const newText = document.createTextNode(`specials("${menuType}");`);
+    const newText = document.createTextNode(`Especiales-Specials("${menuType}");`);
     const newHeading = document.createElement("h2");
     newHeading.appendChild(newText);
     document.getElementById("header-specials").appendChild(newHeading);
@@ -173,7 +173,7 @@ function renderMenu(itemType, menuCategory) {
             const menuAppended = document.getElementById(idListTag);
             const newItemDiv = buildDiv({ divClass: "menu-item", divID: `add-${item}` });
             newItemDiv.appendChild(buildDiv({ divClass: "item-name", divText: `${menu[item].product}`}));
-            newItemDiv.appendChild(buildDiv({ divClass: "item-price", divText: `$${getItemPrice(menu[item]).toFixed(2)}`}));
+            newItemDiv.appendChild(buildDiv({ divClass: "item-price", divText: `€${getItemPrice(menu[item]).toFixed(2)}`}));
             newItemDiv.appendChild(buildDiv({ divClass: "item-desc", divText: `${getItemDesc(menu[item])}`}));
             newItemDiv.addEventListener("click",function(){addMenuItem(this.id)});
             menuAppended.appendChild(newItemDiv);
@@ -200,7 +200,7 @@ function renderOrderList() {
 
             const newOrderDiv = buildDiv({ divClass: "order-item" })
             newOrderDiv.appendChild(buildDiv({ divClass: "order-product", divText: `${customerOrderList[item].product}` }));
-            newOrderDiv.appendChild(buildDiv({ divClass: "order-price", divText: `$${getItemPrice(customerOrderList[item]).toFixed(2)}` }));
+            newOrderDiv.appendChild(buildDiv({ divClass: "order-price", divText: `€${getItemPrice(customerOrderList[item]).toFixed(2)}` }));
             const trashIcon = document.createElement("i");
             trashIcon.className = "order-remove far fa-trash-alt";
             trashIcon.id = `del-${item}`;
@@ -214,7 +214,7 @@ function renderOrderList() {
         document.getElementById("reset-btn").classList.add("toggle-visible");
         orderListHTML.appendChild(buildDiv({ divClass: "please-order-text", divText: "(No items in cart.)" }))
     }
-    document.getElementById("total-payment").textContent = `$${totalPaymentOutput.toFixed(2)}`;
+    document.getElementById("total-payment").textContent = `€${totalPaymentOutput.toFixed(2)}`;
 }
 
 
@@ -234,7 +234,7 @@ function addMenuItem(itemID) {
 
 function delOrderItem(itemID) {
     let delItemIndex = itemID.substring(itemID.indexOf("-") + 1);
-    if (confirm(`Are you sure you want to delete ${customerOrderList[delItemIndex].product} from your order? Hit OK to confirm.`)) {
+    if (confirm(`¿Estás seguro de que quieres eliminar los ${customerOrderList[delItemIndex].product} de tu pedido? Golpea OK para confirmar.\r\nAre you sure you want to delete ${customerOrderList[delItemIndex].product} from your order? Hit OK to confirm.`)) {
         customerOrderList.splice(delItemIndex, 1);
         renderOrderList();
         serviceBark("delete");
@@ -243,7 +243,7 @@ function delOrderItem(itemID) {
 
 
 function delOrderAll() {
-    if (confirm(`Are you sure you want to delete your entire order? Hit OK to confirm.`)) {
+    if (confirm(`¿Estás seguro de que quieres eliminar todo tu pedido? Golpea OK para confirmar.\r\nAre you sure you want to delete your entire order? Hit OK to confirm.`)) {
         customerOrderList = [];
         renderOrderList();
         serviceBark("deleteAll");
@@ -256,7 +256,7 @@ function checkoutButton() {
         for (var item in customerOrderList) {
             totalPayment += getItemPrice(customerOrderList[item]);
         }
-        barkTable.checkout[0] = `Perfect! We'll get that started for you right away! Your total comes out to $${totalPayment.toFixed(2)}\r\n\r\nWould you like to leave a tip? It's hard times as a single mom with 3 kids. The little bytes bloom into megabytes so fast these days.\r\n\r\nThey'll be terrabytes before I know it.`;
+        barkTable.checkout[0] = `¡Perfecto! ¡Lo comenzaremos de inmediato! Tu total sale a €${totalPayment.toFixed(2)}\r\n\r\nPerfect! We'll get that started for you right away! Your total comes out to €${totalPayment.toFixed(2)}\r\n\r\nMe alegraría mucho si quieres dejar una pequeña propina.\r\n\r\nI would be very glad if you want to leave a small tip.`;
         serviceBark("checkout");
         toggleMenu();
         document.getElementById("checkout-btn").classList.add("toggle-visible");
@@ -285,14 +285,13 @@ function serviceBarkCategory(menuItem, category) {
     }
 }
 
-
+//"ali.\r\n\r\n veli.",
 
 const barkTable = {
     intro: [
-        `¡Hola! Mi nombre es ${waitressName} y hoy seré tu servidor digital.
-        Hello there! My name is ${waitressName} and I'll be your digital server today.
-        \r\n\r\nTómese el tiempo para ver nuestras ofertas especiales de hoy a la derecha. Resalte y haga clic en cualquier artículo que desee agregar a su carrito.
-        \r\n\r\nPlease take the time to look over our specials today on the right. Highlight and click any items you'd like to add to your basket.`
+        `¡Hola! Mi nombre es ${waitressName} y hoy seré tu servidor digital.\r\n\r\nHello there! My name is ${waitressName} and I'll be your digital server today.
+        \r\nTómese el tiempo para ver nuestras ofertas especiales de hoy a la derecha. Resalte y haga clic en cualquier artículo que desee agregar a su carrito.
+       \r\nPlease take the time to look over our specials today on the right. Highlight and click any items you'd like to add to your basket.`
     ],
 
     delete: [
@@ -319,25 +318,25 @@ const barkTable = {
     ],
 
     salad: [
-        "Great choice! Gotta watch your girlish figure after all!",
-        "Have you had one of our salads before? They're so filling that most people take a to-go container.",
-        "Good choice! I'll be bringing pepper that I can freshly grind to your preference.",
-        "I don't know which of our salad choices I like better. They're both just divine."
+        "¡Gran elección! ¡Tengo que ver tu figura de niña después de todo!\r\n\r\n Great choice! Gotta watch your girlish figure after all!",
+        "¿Has tenido una de nuestras ensaladas antes? Están tan abundantes que la mayoría de las personas toman un contenedor para llevar.\r\n\r\n Have you had one of our salads before? They're so filling that most people take a to-go container.",
+        "¡Buena elección! Traeré pimienta que pueda moler recién en tu preferencia.\r\n\r\n Good choice! I'll be bringing pepper that I can freshly grind to your preference.",
+        "No sé cuál de nuestras opciones de ensalada me gustan más. Ambos son solo divinos.\r\n\r\n I don't know which of our salad choices I like better. They're both just divine.",
     ],
 
     drinks: [
-        "I'll bring it to you ice cold once we're done with the rest of your order!"
+        "¡Te lo traeré helado una vez que hayamos terminado con el resto de tu pedido!\r\n\r\n I'll bring it to you ice cold once we're done with the rest of your order!"
     ],
 
     sides: [
-        "ali.\r\n\r\n veli.",
         "¿Alguna salsa para acompañar? Sin cargo adicional.\r\n\r\n Any sauces on the side? No extra charge.",
-        "Just can't get enough, huh? That's an excellent choice of side."
+        "No puedo tener suficiente, ¿eh? Esa es una excelente elección del lado.\r\n\r\n Just can't get enough, huh? That's an excellent choice of side.",
+        
     ],
 
     deleteAll: [
-        "Alright, I've shredded the entire order page, ready to start from scratch. What would you like?",
-        "1... 2... and.... POOF! Your indecisiveness shall not become a problem today."
+        "Muy bien, he triturado toda la página de pedidos, lista para comenzar desde cero. ¿Qué le gustaría?\r\n\r\nAlright, I've shredded the entire order page, ready to start from scratch. What would you like?",
+        "1 ... 2 ... y ... ¡POOF! Su indecisión no se convertirá en un problema hoy.\r\n\r\n 1... 2... and.... POOF! Your indecisiveness shall not become a problem today."
     ]
 };
 
@@ -352,4 +351,9 @@ var moment = require('moment');
  **/
 exports.footer = function (name) {
     return "Copyright " + moment().format('YYYY') + " " + name + " All rights reserved";
+};
+
+window.onload= function () {
+    var footer = document.getElementById("footer")
+    footer.innerText= "Mustafa"
 };
