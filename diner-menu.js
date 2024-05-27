@@ -289,9 +289,10 @@ function serviceBarkCategory(menuItem, category) {
 
 const barkTable = {
     intro: [
-        `Hello there! My name is ${waitressName} and I'll be your digital server today.
-        \r\n\r\nPlease take the time to look over our specials today on the right. Highlight and click any items you'd like to add to your basket.
-        \r\n\r\nlet me know if you have questions. I'm fully incapable of answering of course, but I'm secretly a really good listener. Honest!`
+        `¡Hola! Mi nombre es ${waitressName} y hoy seré tu servidor digital.
+        Hello there! My name is ${waitressName} and I'll be your digital server today.
+        \r\n\r\nTómese el tiempo para ver nuestras ofertas especiales de hoy a la derecha. Resalte y haga clic en cualquier artículo que desee agregar a su carrito.
+        \r\n\r\nPlease take the time to look over our specials today on the right. Highlight and click any items you'd like to add to your basket.`
     ],
 
     delete: [
@@ -307,7 +308,7 @@ const barkTable = {
     breakfast: [
         "Great way to start the day! Don't forget about our freshly brewed Java cups!",
         "Fresh from the kitchen, I promise! I recommend our HTML tots as a side.",
-        "Ever question your life choices by being awake this early? I guarantee that dish will bring some much needed clarity to your day."
+        "¿Alguna vez has cuestionado tus elecciones de vida estando despierto tan temprano? Te garantizo que ese plato traerá la claridad que tanto necesitas a tu día.\r\n\r\nEver question your life choices by being awake this early? I guarantee that dish will bring some much needed clarity to your day."
     ],
 
     burger: [
@@ -329,7 +330,8 @@ const barkTable = {
     ],
 
     sides: [
-        "Any sauces on the side? No extra charge.",
+        "ali.\r\n\r\n veli.",
+        "¿Alguna salsa para acompañar? Sin cargo adicional.\r\n\r\n Any sauces on the side? No extra charge.",
         "Just can't get enough, huh? That's an excellent choice of side."
     ],
 
