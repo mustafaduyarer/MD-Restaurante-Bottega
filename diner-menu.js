@@ -1,95 +1,95 @@
 const menu = [
     {
-        product: "Big Java Burger",
+        product: "Hamburguesa grande",
         price: 13.50,
         dinnerPriceMod: 2,
         tags: ["lunch", "dinner", "specials", "burger"]
     },
     {
-        product: "Ruby on Rails Burger",
+        product: "Gazpacho",
         price: 11.75,
         dinnerPriceMod: 2,
         tags: ["lunch", "dinner", "specials", "burger"]
     },
     {
-        product: "J-Vue Salad",
-        price: 10.50,
+        product: "Salad",
+        price: 8.50,
         dinnerPriceMod: 2,
         tags: ["lunch", "dinner", "specials", "salad"]
     },
     {
-        product: "Python Cobb Salad",
+        product: "Paella",
         price: 11.00,
         dinnerPriceMod: 2,
         tags: ["lunch", "dinner", "specials", "salad"]
     },
     {
-        product: "PHP Hot Cakes",
+        product: "Churros con chocolate",
         price: 8.50,
         tags: ["breakfast", "specials"]
     },
     {
-        product: "C++ Omelette",
+        product: "Chorizo",
         price: 9.00,
         tags: ["breakfast", "specials"]
     },
     {
-        product: "Biscuits & C# Gravy",
+        product: "Empanadas de atun",
         price: 8.50,
         tags: ["breakfast", "specials"]
     },
     {
-        product: "J-Query Rings",
+        product: "Gambas al ajillo",
         price: 3.50,
         tags: ["lunch", "dinner", "sides"]
     },
     {
-        product: "HTML Tots",
+        product: "Tostas de tomate y jamón",
         price: 4.00,
         tags: ["breakfast", "lunch", "dinner", "sides"]
     },
     {
-        product: "Lodash _.Bacon",
+        product: "Tortilla de patatas",
         price: 3.00,
         tags: ["breakfast", "sides"],
-        description: "5 thick slices of heaven."
+        description: "The Spanish omelette"
     },
     {
-        product: "The 'Real Java' 20oz",
+        product: "Pan con tomate",
         price: 1.50,
         tags: ["breakfast", "drinks"]
     },
     {
-        product: "Repl.it Shake",
+        product: "Vino",
         price: 4.00,
         tags: ["lunch", "dinner", "drinks"]
     },
     {
-        product: "Fizzbuzz Soda",
-        price: 3.00,
+        product: "Agua de Soda",
+        price: 2.00,
         tags: ["lunch", "dinner", "drinks"],
         description: "Free refills all day!"
     },
     {
-        product: "Chrome Smoothie",
+        product: "Smoothie",
         price: 3.00,
         tags: ["lunch", "dinner", "drinks"]
     },
     {
-        product: "Cascading Orange Juice",
-        price: 2.00,
+        product: "Zumo de naranja",
+        price: 3.00,
         tags: ["breakfast", "drinks"],
-        description: "Free refill with order."
+        description: "Cascading Orange Juice-Free refill with order."
     },
     {
-        product: "Firefox Mimosa",
-        price: 6.00,
+        product: "Cafe con leche",
+        price: 3.00,
         tags: ["breakfast", "drinks"],
-        description: "Not as dry as your sense of humor."
+        description: "Que tengas un feliz día hoy! - Have a happy day today!"
     },
 ]
 
-const waitressNameBank = ["Sofía", "Alba", "Daniela", "María", "Fabio", "Xavi"];
+const waitressNameBank = ["Sofía", "Alba", "Daniela", "Ainhoa", "Fabio", "Xavi"];
 
 
 var customerOrderList = [];
@@ -124,7 +124,7 @@ function setMenuCategory(menuType) {
 function setSpecialsCategory(menuType) {
     currentMenuCategory = menuType;
     // document.getElementById("header-specials").textContent = `<h2>specials("${menuType}");</h2>`;
-    const newText = document.createTextNode(`Especiales-Specials("${menuType}");`);
+    const newText = document.createTextNode(`--Especiales-Specials("${menuType}")--`);
     const newHeading = document.createElement("h2");
     newHeading.appendChild(newText);
     document.getElementById("header-specials").appendChild(newHeading);
@@ -275,7 +275,7 @@ function generateWaitress() {
 
 function serviceBark(eventType) {
     var barkIndex = getRandInt(1, barkTable[eventType].length) - 1;
-    document.getElementById("server-chat-box").textContent = `${waitressName.toUpperCase()} SAYS:\r\n\r\n"` + barkTable[eventType][barkIndex] + '"';
+    document.getElementById("server-chat-box").textContent = `${waitressName.toUpperCase()} DICE-SAYS:\r\n\r\n"` + barkTable[eventType][barkIndex] + '"';
 }
 
 
@@ -295,9 +295,10 @@ const barkTable = {
     ],
 
     delete: [
-        "Not to worry, we'll just forget you ever tried to order that.",
-        "Are you absolutely sure? I've been told ours are the best in the whole country.",
-        "Alright, I'll scratch that one off the list. What else would you like to order?"
+        "No te preocupes, olvidaremos que alguna vez intentaste pedir eso.\r\n\r\nNot to worry, we'll just forget you ever tried to order that.",
+        "¿Estás absolutamente seguro? Me han dicho que los nuestros son los mejores de todo el país.\r\n\r\n Are you absolutely sure? I've been told ours are the best in the whole country.",
+        "Muy bien, lo borraré de la lista. ¿Qué más te gustaría pedir?\r\n\r\n Alright, I'll scratch that one off the list. What else would you like to order?"
+       
     ],
 
     checkout: [
@@ -305,16 +306,17 @@ const barkTable = {
     ],
 
     breakfast: [
-        "Great way to start the day! Don't forget about our freshly brewed Java cups!",
-        "Fresh from the kitchen, I promise! I recommend our HTML tots as a side.",
+        "¡Excelente manera de empezar el día! ¡No te olvides de nuestras tazas chocolate recién hechas!\r\n\r\n Great way to start the day! Don't forget about our freshly brewed chocolate cups!",
+        "Recién salido de la cocina, ¡lo prometo! Recomiendo nuestros empanadas como acompañamiento.\r\n\r\n Fresh from the kitchen, I promise! I recommend our empanadas as a side.",
         "¿Alguna vez has cuestionado tus elecciones de vida estando despierto tan temprano? Te garantizo que ese plato traerá la claridad que tanto necesitas a tu día.\r\n\r\nEver question your life choices by being awake this early? I guarantee that dish will bring some much needed clarity to your day."
     ],
 
     burger: [
-        "That is a burger. Burgers are tasty. Sorry, my creator's laziness is occasionally on display at crucial moments. I hope you don't blame me.",
-        "If the patty was ever frozen, I guarantee it wasn't at THIS establishment",
-        "Made with real cow, believe it or not!",
-        "We've got a full condiments bar just over there if you need any toppings."
+        "Esa es una hamburguesa. Las hamburguesas son sabrosas. Lo siento, la pereza de mi creador se manifiesta ocasionalmente en momentos cruciales. Espero que no me culpes.\r\n\r\n That is a burger. Burgers are tasty. Sorry, my creator's laziness is occasionally on display at crucial moments. I hope you don't blame me.", 
+        "Si alguna vez la hamburguesa estuvo congelada, te garantizo que no fue en ESTE establecimiento.\r\n\r\n If the patty was ever frozen, I guarantee it wasn't at THIS establishment",
+        "Hecho con vaca real, ¡lo creas o no!\r\n\r\n Made with real cow, believe it or not!",
+        "Tenemos una barra de condimentos completa justo allí si necesitas algún aderezo.\r\n\r\n We've got a full condiments bar just over there if you need any toppings."
+        
     ],
 
     salad: [

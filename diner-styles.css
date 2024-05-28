@@ -263,10 +263,10 @@
 
 footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     color: white;
     font-family: 'Roboto Mono', monospace;
-    font-size: .9vw;
+    font-size: .99vw;
     padding-right: 2vw;
 }
 
@@ -282,9 +282,9 @@ footer {
     border-radius: 4px;
     padding-left: 2.5vw;
     padding-right: 50px;
-    padding-top: 11px;
+    padding-top: 35px;
     padding-bottom: 1px;
-    width:350px;
+    width:400px;
     position: fixed
    
 }
