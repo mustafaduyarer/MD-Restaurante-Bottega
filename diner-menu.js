@@ -359,3 +359,6 @@ window.onload= function () {
     var footer = document.getElementById("footer")
     footer.innerText= "Mustafa"
 };
+
+
+
